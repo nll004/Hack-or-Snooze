@@ -34,3 +34,16 @@ function updateNavOnLogin() {
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
+
+// Toggle new story form using close button and nav link
+$('#exit-button').on('click', function(){
+  $('#exit-button').addClass('hidden');
+  $('#new-story-container').addClass('hidden');
+})
+
+$('#submit-tag').on('click', function(e){
+  e.preventDefault();
+  console.log('clicked')
+  $('#exit-button').removeClass("hidden");
+  $('#new-story-container').removeClass("hidden");
+})

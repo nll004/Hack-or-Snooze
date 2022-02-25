@@ -20,7 +20,7 @@ async function getAndShowStoriesOnStart() {
  */
 
 function generateStoryMarkup(story) {
-  // console.debug("generateStoryMarkup", story);
+  console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName();
   return $(`
@@ -50,3 +50,22 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+/** Take new story submission and create a new story */
+async function uploadNewStory() {
+  const title = $('#title').val();
+  const author = $('#author').val();
+  const url = $('#url').val();
+  const username = currentUser.username;
+  const storyObj = {title, author, url, username};
+
+  const newStory = await storyList.addStory(currentUser, storyObj);
+
+  const $story = generateStoryMarkup(newStory);
+  $allStoriesList.prepend($story);
+}
+
+$('#new-story-form').on('submit', function(evt){
+  evt.preventDefault();
+  uploadNewStory();
+})
