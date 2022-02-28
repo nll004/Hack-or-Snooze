@@ -37,11 +37,15 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-self: center;
-  background-color: #f6f6ef;
+  background-color:
 }
 
 .hidden {
   display: none;
+}
+
+.fave {
+  background-color: #cacaca;
 }
 
 

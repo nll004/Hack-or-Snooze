@@ -35,7 +35,7 @@ function updateNavOnLogin() {
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
-// Toggle new story form using close button and nav link
+// Open and close new story form, using close button and nav link
 $('#exit-button').on('click', function(){
   $('#exit-button').addClass('hidden');
   $('#new-story-container').addClass('hidden');
@@ -43,7 +43,21 @@ $('#exit-button').on('click', function(){
 
 $('#submit-tag').on('click', function(e){
   e.preventDefault();
-  console.log('clicked')
   $('#exit-button').removeClass("hidden");
   $('#new-story-container').removeClass("hidden");
 })
+
+//   Navigate Favorites Tab to create new faves list
+const favoriteTab = document.querySelector('#fav-link');
+
+favoriteTab.addEventListener('click', function(){
+  storyList.stories = currentUser.favorites;
+  putStoriesOnPage();
+})
+
+//    Navigate to main story list
+const mainPageStories = document.querySelector('#nav-all');
+
+mainPageStories.addEventListener('click', function(){
+  getAndShowStoriesOnStart()
+});
