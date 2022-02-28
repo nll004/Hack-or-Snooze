@@ -6,3 +6,6 @@ Given an html and css file, I was tasked with creating a function to upload new 
 
 ## To do
 Fix favorites selector. Currently needs to be double clicked to remove it from the favorites list.
+
+## Try it
+https://nll004.github.io/Hack-or-Snooze/
